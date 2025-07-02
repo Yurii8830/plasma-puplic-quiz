@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plasma Quiz - Результат</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #042a02, #001200 90%);
+      font-family: 'Roboto', sans-serif;
+      color: #b6f0b6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 25px;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    .logo {
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      font-size: 5rem;
+      color: #7fffd4;
+      letter-spacing: 0.4em;
+      margin-bottom: 20px;
+      user-select: none;
+      text-shadow:
+        0 0 6px #7fffd4,
+        0 0 15px #0ff,
+        0 0 30px #0ff,
+        0 0 40px #0ff;
+      animation: plasmaGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes plasmaGlow {
+      0% {
+        text-shadow:
+          0 0 10px #50fa7b,
+          0 0 25px #50fa7b,
+          0 0 40px #50fa7b,
+          0 0 60px #50fa7b,
+          0 0 80px #50fa7b;
+        color: #50fa7b;
+      }
+      100% {
+        text-shadow:
+          0 0 25px #7fffd4,
+          0 0 40px #7fffd4,
+          0 0 60px #7fffd4,
+          0 0 90px #7fffd4,
+          0 0 120px #7fffd4;
+        color: #7fffd4;
+      }
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #0f9d0f;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .score {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #50fa7b;
+      text-shadow: 0 0 15px #50fa7b;
+    }
+
+    a.restart-btn {
+      display: inline-block;
+      padding: 16px 45px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #003300;
+      background: linear-gradient(45deg, #50fa7b, #32cd32);
+      border-radius: 30px;
+      box-shadow: 0 0 25px #50fa7b;
+      text-decoration: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    a.restart-btn:hover {
+      background: linear-gradient(45deg, #7fffd4, #40e040);
+      box-shadow: 0 0 40px #7fffd4;
+      color: #001a00;
+    }
+
+    /* Адаптивність */
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 3.8rem;
+        letter-spacing: 0.25em;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .score {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .logo {
+        font-size: 3rem;
+        letter-spacing: 0.15em;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .score {
+        font-size: 1.6rem;
+      }
+
+      a.restart-btn {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">PLASMA</div>
+  <h1>Test result</h1>
+  <div class="score">Your assessment: {{ score }} out of {{ total }}</div>
+  <a href="{{ url_for('index') }}" class="restart-btn">Start again</a>
+</body>
+</html>
